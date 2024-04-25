@@ -166,12 +166,14 @@ const formButton = document.querySelector("#submit");
 
 formButton.addEventListener("click", (event) => {
     event.preventDefault();
-    const book = new Book(
-        titleF.value,
-        authorF.value,
-        pagesF.value,
-        readF.checked
-    );
-    addBookToLibrary(book);
-    resetForm();
+    if (document.querySelector('.form').checkValidity()) {
+        const book = new Book(
+            titleF.value,
+            authorF.value,
+            pagesF.value,
+            readF.checked
+        );
+        addBookToLibrary(book);
+        resetForm();
+    }
 });
